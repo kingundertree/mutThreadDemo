@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		023A88EE188E0A63002465F4 /* DIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 023A88ED188E0A63002465F4 /* DIMainViewController.m */; };
 		028ED3E9188E098E00FB976C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED3E8188E098E00FB976C /* Foundation.framework */; };
 		028ED3EB188E098E00FB976C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED3EA188E098E00FB976C /* CoreGraphics.framework */; };
 		028ED3ED188E098E00FB976C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED3EC188E098E00FB976C /* UIKit.framework */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		023A88EC188E0A63002465F4 /* DIMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIMainViewController.h; sourceTree = "<group>"; };
+		023A88ED188E0A63002465F4 /* DIMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIMainViewController.m; sourceTree = "<group>"; };
 		028ED3E5188E098E00FB976C /* mutThreadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mutThreadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		028ED3E8188E098E00FB976C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		028ED3EA188E098E00FB976C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +114,8 @@
 				028ED3F8188E098F00FB976C /* DIAppDelegate.m */,
 				028ED3FA188E098F00FB976C /* Images.xcassets */,
 				028ED3EF188E098F00FB976C /* Supporting Files */,
+				023A88EC188E0A63002465F4 /* DIMainViewController.h */,
+				023A88ED188E0A63002465F4 /* DIMainViewController.m */,
 			);
 			path = mutThreadDemo;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			files = (
 				028ED3F5188E098F00FB976C /* main.m in Sources */,
 				028ED3F9188E098F00FB976C /* DIAppDelegate.m in Sources */,
+				023A88EE188E0A63002465F4 /* DIMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +448,7 @@
 				028ED413188E099000FB976C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		028ED414188E099000FB976C /* Build configuration list for PBXNativeTarget "mutThreadDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +457,7 @@
 				028ED416188E099000FB976C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

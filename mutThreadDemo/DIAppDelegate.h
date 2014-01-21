@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DIMainViewController.h"
 
 @interface DIAppDelegate : UIResponder <UIApplicationDelegate>
+@property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundUpdateTask;
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) DIMainViewController *mainVC;
 @end
