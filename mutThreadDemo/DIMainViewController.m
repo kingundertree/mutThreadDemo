@@ -170,13 +170,16 @@
     self.myDelegate.worldStr = [NSString stringWithFormat:@"change the word need a big mind"];
     NSLog(@"newWorld2-->>%@",self.myDelegate.worldStr);
     
-    //    NSInvocationOperation *theOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(myTaskMethod:) object:nil];
-//
-//    [[self.myDelegate sharedOperationQueue] addOperation:theOp];
-//    AppDelegate * appDelegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
-//    NSInvocationOperation * genOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(generateKeyPairOperation) object:nil];
-//    [appDelegate.cryptoQueue addOperation:genOp];
+    queue = [[NSOperationQueue alloc] init];
 
+    NSInvocationOperation *theOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(ioCalc:) object:nil];
+    [queue addOperation:theOp];
+}
+-(void)ioCalc:(NSInvocationOperation *)io{
+    for (long i = 0; i < 1000000000; i++) {
+        NSLog(@"str-->>%@",[NSString stringWithFormat:@"ioNum---->>%ld",i]);
+        self.strLab.text = [NSString stringWithFormat:@"ioNum---->>%ld",i];
+    }
 }
 -(void)viewDidAppear:(BOOL)animated{
     if (timer) {
