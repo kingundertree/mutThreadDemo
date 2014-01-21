@@ -10,8 +10,9 @@
 #import "DIMainViewController.h"
 
 @interface DIAppDelegate : UIResponder <UIApplicationDelegate>
-@property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundUpdateTask;
 
+@property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundUpdateTask;
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) DIMainViewController *mainVC;
+@property (strong, nonatomic) NSString *worldStr;
+@property (strong, nonatomic) UIPageViewController *mainVC;
 @end

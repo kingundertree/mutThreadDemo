@@ -11,12 +11,13 @@
 #define IOS7_SDK_AVAILABLE 1
 
 @interface DIMainViewController ()
-
+@property (strong,nonatomic) DIAppDelegate *myDelegate;
 @end
 
 @implementation DIMainViewController
 
-@synthesize strLab,lInt,timer;
+@synthesize strLab,lInt,timer,queue;
+@synthesize myDelegate = _myDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +39,8 @@
             self.edgesForExtendedLayout = UIRectEdgeNone;
         }
     }
-    
+    self.myDelegate = (DIAppDelegate *)[[UIApplication sharedApplication] delegate];
+
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn1.frame = CGRectMake(10, 10, 65, 35);
     [btn1 addTarget:self action:@selector(nstd:) forControlEvents:UIControlEventTouchUpInside];
@@ -79,13 +81,6 @@
     self.strLab.frame = CGRectMake(10, 100, 300, 40);
     self.strLab.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.strLab];
-
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        for (long i = 0; i < 1000000000; i++) {
-//            NSLog(@"str-->>%@",[NSString stringWithFormat:@"gcdNum---->>%ld",i]);
-//            self.strLab.text = [NSString stringWithFormat:@"gcdNum---->>%ld",i];
-//        }
-//    });
 }
 -(void)nstd:(UIButton *)btn{
     NSLog(@"nstd-->>");
@@ -149,10 +144,39 @@
 
 -(void)nsoq:(UIButton *)btn{
     NSLog(@"nsoq");
-   
+    queue = [[NSOperationQueue alloc] init];
+    NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(oqCalc:) object:nil];
+    [queue addOperation:op];
+}
+-(void)oqCalc:(NSInvocationOperation *)op{
+    for (long i = 0; i < 1000000000; i++) {
+        NSLog(@"opstr-->>%@",[NSString stringWithFormat:@"gcdNum---->>%ld",i]);
+        self.strLab.text = [NSString stringWithFormat:@"gcdNum---->>%ld",i];
+        if (i == 10000) {
+            [self performSelectorOnMainThread:@selector(oqDone) withObject:nil waitUntilDone:NO];
+
+        }
+    }
+}
+-(void)oqDone{
+    NSLog(@"oqdone over");
 }
 -(void)nsio:(UIButton *)btn{
     NSLog(@"nsio");
+    
+    self.myDelegate = (DIAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSLog(@"newWorld1-->>%@",self.myDelegate.worldStr);
+    
+    self.myDelegate.worldStr = [NSString stringWithFormat:@"change the word need a big mind"];
+    NSLog(@"newWorld2-->>%@",self.myDelegate.worldStr);
+    
+    //    NSInvocationOperation *theOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(myTaskMethod:) object:nil];
+//
+//    [[self.myDelegate sharedOperationQueue] addOperation:theOp];
+//    AppDelegate * appDelegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
+//    NSInvocationOperation * genOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(generateKeyPairOperation) object:nil];
+//    [appDelegate.cryptoQueue addOperation:genOp];
+
 }
 -(void)viewDidAppear:(BOOL)animated{
     if (timer) {

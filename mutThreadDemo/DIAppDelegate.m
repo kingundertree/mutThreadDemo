@@ -10,10 +10,11 @@
 
 @implementation DIAppDelegate
 
-@synthesize mainVC,backgroundUpdateTask;
+@synthesize mainVC,backgroundUpdateTask,worldStr;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    worldStr = @"hello world";
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -32,9 +33,6 @@
     // 在这里加上你需要长久运行的代码
 
     NSLog(@"后台线程运行");
-//    for (long i = 0; i < 1000000000; i++) {
-//        NSLog(@"后台计算-->>%ld",i);
-//    }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSLog(@"后台线程运行");

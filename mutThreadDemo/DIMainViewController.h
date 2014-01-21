@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DIAppDelegate.h"
 
 @interface DIMainViewController : UIViewController
 
 @property(nonatomic,strong) UILabel *strLab;
 @property(nonatomic,assign) long lInt;
 @property(nonatomic,strong) NSTimer *timer;
+@property(nonatomic,strong) NSOperationQueue *queue;
 @end
